@@ -1,0 +1,8 @@
+[Unit]
+Description=Regularly ping my websites
+
+[Service]
+ExecStart=/path/of/your/ping_websites.sh
+
+[Install]
+WantedBy=multi-user.target
