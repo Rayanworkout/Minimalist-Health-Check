@@ -1,24 +1,24 @@
 # Minimalist Health Check
 
-Small bash script to check if your websites are still alive and return a 200 status code.
+Small python and bash scripts to check if your websites are still alive and return a 200 status code.
 
 ## Why ?
 
-This script will be useful if you own a few websites and you want to be notified if one of them is down without manually checking.
+These scripts will be useful if you own a few websites and you want to be notified if one of them is down without manually checking.
 
 You don't need to use a paid service for that.
 
-You can use this script to check if your websites are still alive and return a 200 status code 👍
+You can use one of these scripts to check if your websites are still alive and return a 200 status code 👍
 
 ## How to use it ?
 
-Simply clone the repo or copy the content of `ping_websites.sh` and paste it in a file of your choice.
+Simply clone the repo or copy the content of either `ping_websites.sh` or `ping_websites.py` and paste it in a file of your choice.
 
 Some changes need to be made:
 
 1) Inside the `websites` array, write down the websites you wish to monitor (line 11)
 
-2) If you want to receive an alert on Telegram, fill the `telegram_bot_token` and `telegram_chat_id` variables (line 18 and 20)
+2) Fill the `telegram_bot_token` and `telegram_chat_id` variables (line 18 and 20)
 You can follow [this tutorial](https://www.youtube.com/watch?v=UQrcOj63S2o) to create a bot and [this one](https://www.alphr.com/find-chat-id-telegram/) to get your chat id.
 
 Then you need to make the script executable:
@@ -33,9 +33,15 @@ You can now run it:
 ./ping_websites.sh
 ```
 
+or
+
+```bash
+python3 ping_websites.py
+```
+
 If everything is okay, you should now consider automatically running the script at intervals of your choice.
 
-If you're under Linux, you can use `cronjob` or `systemd` to run it regularly.
+If you're under Linux, you can use `anacron`, `cron` or `systemd` to run it regularly.
 
 1) To quickly set up a cronjob, run:
 
@@ -50,9 +56,6 @@ It will open a file, add the following line at the end, make sure to replace the
 ```
 
 This will run the script at every reboot. Cron enable you to run the script at any interval you want. (Once a month, every Monday, Everyday at 6:00 PM ...)
-
-If you need a more in-depth tutorial, I explained how to easily set up a cronjob and understand expressions in [this article](https://rayan.sh/blog/5).
-
 
 2) If you prefer to use `systemd`, follow these steps:
 
